@@ -45,29 +45,10 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ){
-                        CoilImage()
+
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun CoilImage() {
-    Box(){
-        val painter = rememberImagePainter(
-            data = "https://miro.medium.com/v2/resize:fit:600/1*i2skbfmDsHayHhqPfwt6pA.png", //image url
-            builder = {
-                    placeholder(R.drawable.loadingpic) //loading image
-                    crossfade(200)
-                    error(R.drawable.loadingpic) //error image
-            }
-        )
-        Image(painter = painter, contentDescription = "Logo Desc", modifier = Modifier.height(300.dp).width(300.dp))
-        val painterState = painter.state
-        if(painterState is AsyncImagePainter.State.Loading){
-            CircularProgressIndicator()
         }
     }
 }
